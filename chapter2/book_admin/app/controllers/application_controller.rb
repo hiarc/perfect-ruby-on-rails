@@ -7,7 +7,3 @@ class ApplicationController < ActionController::Base
     render template: "shared/login_failed", status: 401
   end
 end
-
-# ログイン失敗を表す例外クラス。
-class LoginFailed < StandardError
-end

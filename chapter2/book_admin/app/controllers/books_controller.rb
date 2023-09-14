@@ -4,10 +4,7 @@ class BooksController < ApplicationController
   around_action :action_logger, obly: [:destroy]
 
   def show
-    respond_to do |format|
-      format.html
-      format.json
-    end
+    render :show
   end
 
   def destroy
