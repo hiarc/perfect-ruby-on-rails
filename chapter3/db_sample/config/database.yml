@@ -10,8 +10,15 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+  # primaryと命名した、優先的に使うDB。設定は初期のまま
+  primary:
+    <<: *default
+    database: db/development.sqlite3
+  # subと命名した、サブ用途のDB。設定ファイルはサブ用のものを指定している
+  sub:
+    <<: *default
+    database: db/development_sub.sqlite3
+    migrations_paths: db/sub_migrate
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
