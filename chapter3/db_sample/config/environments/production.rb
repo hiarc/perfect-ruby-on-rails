@@ -90,4 +90,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # p152 自動的に接続先DBを切り替える。
+  # POST, PUT, DELETE, PATCHでアクセスするとprimaryに接続する。
+  # GET, HEADの場合はレプリカにアクセスする。
+  config.active_record.database_selector = {delay: 2.seconds} # レプリカに反映されるまで2秒
+  config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
+  config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 end

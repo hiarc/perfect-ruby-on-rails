@@ -1,2 +1,2 @@
-class Record < SubRecord
+class Record < ApplicationRecord
 end

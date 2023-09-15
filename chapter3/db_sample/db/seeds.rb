@@ -8,3 +8,4 @@
 
 Book.create!(name: "Cat", price: 1000)
 Author.create!(name: "author1")
+Record.create!(column1: "a1", column2: "b2")
